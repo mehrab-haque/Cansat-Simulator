@@ -4,7 +4,9 @@ import {
   Routes,
   Route, useNavigate
 } from "react-router-dom";
+import './config/firebaseConfig'
 import Dashboard from "./components/Dashboard";
+import Simulator from "./components/Simulator";
 
 
 
@@ -42,6 +44,7 @@ function App() {
 
         <Routes>
           <Route path="/" exact element={<Dashboard />} />
+          <Route path="/simulator" exact element={<Simulator />} />
         </Routes>
 
       </div>
