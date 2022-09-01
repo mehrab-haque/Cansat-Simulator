@@ -11,9 +11,6 @@ const Dashboard=props=>{
     const db = getDatabase();
     const dbRef = ref(db);
 
-
-    const [altitude,setAltitude]=useState(0)
-
     const [altitudeGraph, setAltitudeGraph]=useState({
         labels: ["t+14", "t+13", "t+12","t+11","t+10","t+8","t+7","t+7","t+6","t+5","t+4","t+3","t+2","t+1","t"],
         datasets: [
@@ -35,16 +32,16 @@ const Dashboard=props=>{
     useEffect(()=>{
         onValue(dbRef, (snapshot) => {
             const data = snapshot.val();
-           setAltitude(data.altitude)
+            var tmpAlt={...altitudeGraph}
+            tmpAlt['datasets'][0].data=arrayRotate(tmpAlt['datasets'][0].data)
+            tmpAlt['datasets'][0].data[tmpAlt['datasets'][0].data.length-1]=data.altitude
+            setAltitudeGraph(tmpAlt)
         },error=>{
             console.log(error)
         });
-        setInterval(() => {
-            var tmpAlt={...altitudeGraph}
-            tmpAlt['datasets'][0].data=arrayRotate(tmpAlt['datasets'][0].data)
-            tmpAlt['datasets'][0].data[tmpAlt['datasets'][0].data.length-1]=altitude
-            setAltitudeGraph(tmpAlt)
-        }, 1000);
+        // setInterval(() => {
+        //
+        // }, 1000);
     },[])
 
 
