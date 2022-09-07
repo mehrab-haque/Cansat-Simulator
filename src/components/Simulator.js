@@ -30,6 +30,26 @@ const Simulator=props=>{
         });
     }
 
+    const handleAccXChange=(e,val)=>{
+        update(ref(db), {
+            accx:val
+        });
+    }
+
+    const handleAccYChange=(e,val)=>{
+        update(ref(db), {
+            accy:val
+        });
+    }
+
+    const handleAccZChange=(e,val)=>{
+        update(ref(db), {
+            accz:val
+        });
+    }
+
+
+
     return(
         <Grid container spacing={2} padding={2}>
             <Grid item md={4} xs={12}>
@@ -98,6 +118,63 @@ const Simulator=props=>{
                                 defaultValue={80}
                                 step={1}
                                 onChangeCommitted={handleBarChange}
+                                valueLabelDisplay={"on"}
+                            />
+                        </div>
+                    </Typography>
+                </Paper>
+            </Grid>
+
+            <Grid item md={4} xs={12}>
+                <Paper style={{padding:'10px'}}>
+                    <Typography variant={'h6'}>
+                        <center>
+                            Acceleration-X (m/s^2)
+                        </center>
+                        <div>
+                            <Slider
+                                aria-label="Always visible"
+                                defaultValue={80}
+                                step={1}
+                                onChangeCommitted={handleAccXChange}
+                                valueLabelDisplay={"on"}
+                            />
+                        </div>
+                    </Typography>
+                </Paper>
+            </Grid>
+
+            <Grid item md={4} xs={12}>
+                <Paper style={{padding:'10px'}}>
+                    <Typography variant={'h6'}>
+                        <center>
+                            Acceleration-Y (m/s^2)
+                        </center>
+                        <div>
+                            <Slider
+                                aria-label="Always visible"
+                                defaultValue={80}
+                                step={1}
+                                onChangeCommitted={handleAccYChange}
+                                valueLabelDisplay={"on"}
+                            />
+                        </div>
+                    </Typography>
+                </Paper>
+            </Grid>
+
+            <Grid item md={4} xs={12}>
+                <Paper style={{padding:'10px'}}>
+                    <Typography variant={'h6'}>
+                        <center>
+                            Acceleration-Z (m/s^2)
+                        </center>
+                        <div>
+                            <Slider
+                                aria-label="Always visible"
+                                defaultValue={80}
+                                step={1}
+                                onChangeCommitted={handleAccZChange}
                                 valueLabelDisplay={"on"}
                             />
                         </div>

@@ -7,6 +7,8 @@ import {
 import './config/firebaseConfig'
 import Dashboard from "./components/Dashboard";
 import Simulator from "./components/Simulator";
+import Missions from "./components/Missions";
+import SingleMission from "./components/SingleMission";
 
 
 
@@ -43,8 +45,10 @@ function App() {
         />
 
         <Routes>
-          <Route path="/" exact element={<Dashboard />} />
-          <Route path="/simulator" exact element={<Simulator />} />
+            <Route path="/" exact element={<Missions />} />
+            <Route path="/mission/:id" exact element={<SingleMission />} />
+            <Route path="/data" exact element={<Dashboard />} />
+            <Route path="/simulator" exact element={<Simulator />} />
         </Routes>
 
       </div>
