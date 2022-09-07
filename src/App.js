@@ -9,6 +9,7 @@ import Dashboard from "./components/Dashboard";
 import Simulator from "./components/Simulator";
 import Missions from "./components/Missions";
 import SingleMission from "./components/SingleMission";
+import {Grid,Typography} from "@mui/material";
 
 
 
@@ -59,6 +60,35 @@ function App() {
             <Route path="/data" exact element={<Dashboard />} />
             <Route path="/simulator" exact element={<Simulator />} />
         </Routes>
+
+          <Grid  style={{marginTop:'40px',marginBottom:'40px'}} container spacing={1}>
+              <Grid style={{
+                  display:'flex',
+                  alignItems:'center',
+                  justifyContent:'center'
+              }} item xs={12} md={6}>
+                  <Typography variant={'h5'}>
+                      <center >
+                          This project is supported by<br/>
+                          ICT Division<br/>
+                          Ministry of Post Telecommunication and Information Technology<br/>
+                          Government of the people republic of Bangladesh
+                      </center>
+
+                  </Typography>
+              </Grid>
+              <Grid style={{
+                  display:'flex',
+                  alignItems:'center',
+                  justifyContent:'center'
+              }} item xs={12} md={6}>
+                  <center >
+                      <img src={'ict.png'} style={{
+                          height:'200px'
+                      }}/>
+                  </center>
+              </Grid>
+          </Grid>
 
       </div>
   );
